@@ -5,17 +5,18 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
-    private bool conversationStarted;
+    //private bool conversationStarted;
+    //public GameObject[] characterList;
     //public DialogueManager dialogueManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        conversationStarted = false;
+        //conversationStarted = false;
         //dialogueManager = gameObject.GetComponent<DialogueManager>();
     }
 
-    void Update()
+    /*void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && conversationStarted)
         {
@@ -27,12 +28,12 @@ public class DialogueTrigger : MonoBehaviour
             TriggerDialogue();
             
         }
-    }
+    }*/
 
     public void TriggerDialogue()
     {
         FindAnyObjectByType<DialogueManager>().StartDialogue(dialogue);
+        //Debug.Log("Triggered");
     }
-
 
 }

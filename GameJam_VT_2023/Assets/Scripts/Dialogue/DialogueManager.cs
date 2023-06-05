@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     public float textSpeed = 0.1f;
+    private int dialogueIndex = 0;
+    private bool conversationStarted;
 
     public Text nameText;
     public Text dialogueText;
@@ -14,17 +17,38 @@ public class DialogueManager : MonoBehaviour
 
     public Queue<string> sentences;
 
+    public GameObject[] characterList;
+    private DialogueTrigger dialogueTrigger;
+
     // Start is called before the first frame update
     void Start()
     {
+        dialogueIndex = 0;
         sentences = new Queue<string>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && conversationStarted)
+        {
+            FindAnyObjectByType<DialogueManager>().DisplayNextSentence();
+            //dialogueManager.StartDialogue();
+        }
+        else if (Input.GetKeyDown(KeyCode.Space) && !conversationStarted)
+        {
+            conversationStarted = true;
+            characterList[dialogueIndex].GetComponent<DialogueTrigger>().TriggerDialogue();
+        }
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
+
         animator.SetBool("IsOpen", true);
         //Debug.Log("Starting conversation with " + dialogue.name);
+        //Debug.Log(dialogue.name);
         nameText.text = dialogue.name;
+
 
         sentences.Clear();
 
@@ -63,7 +87,18 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        animator.SetBool("IsOpen", false);
+        //animator.SetBool("IsOpen", false);
+
+        try
+        {
+            dialogueIndex++;
+            characterList[dialogueIndex].GetComponent<DialogueTrigger>().TriggerDialogue();
+        } catch(Exception e)
+        {
+            Console.WriteLine(e.Message);
+            animator.SetBool("IsOpen", false);
+        }
+
         //Debug.Log("End conversation");
     }
 
