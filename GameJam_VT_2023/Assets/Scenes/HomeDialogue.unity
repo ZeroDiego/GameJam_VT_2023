@@ -123,6 +123,106 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &236450709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 236450711}
+  - component: {fileID: 236450710}
+  m_Layer: 0
+  m_Name: Nanako Dojima3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &236450710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236450709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d753fbb3a757f24c82cfbd53b9351d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Nanako Dojima
+    sentences:
+    - Why does it always have to be like this?
+    - Sorry, I forgot to tell you. My dad's a detective. So it feels like he's always
+      out.
+    - It gets very lonely at times. So hopefully we'll get along...
+    - I'm tired so I'm going to bed. Good night.
+--- !u!4 &236450711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236450709}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 630.2227, y: 204.37126, z: -0.47408867}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &304044274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 304044276}
+  - component: {fileID: 304044275}
+  m_Layer: 0
+  m_Name: Ryotaro Dojima3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &304044275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304044274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d753fbb3a757f24c82cfbd53b9351d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Ryotaro Dojima
+    sentences:
+    - Well, i'm off!
+--- !u!4 &304044276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304044274}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 630.2227, y: 204.37126, z: -0.47408867}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &413092321
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,6 +359,54 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!1 &561886519
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 561886521}
+  - component: {fileID: 561886520}
+  m_Layer: 0
+  m_Name: Nanako Dojima2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &561886520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561886519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d753fbb3a757f24c82cfbd53b9351d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Nanako Dojima
+    sentences:
+    - I already brought it in.
+--- !u!4 &561886521
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561886519}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 630.2227, y: 204.37126, z: -0.47408867}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &676393825
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,11 +520,14 @@ MonoBehaviour:
   dialogue:
     name: Ryotaro Dojima
     sentences:
-    - Hi there! Well, you're more handsome in person than in your photo.
-    - I'm Ryotaro Dojima, your uncle. Your parents told me to take care of you for
-      the upcoming year.
-    - I'll say. You've really grown. I still remember when you were in diapers...
-    - 'And oh, this my daughter Nanako. Introduce yourself to your cousin. '
+    - Welcome to our home!
+    - Alright, let's have a toast.
+    - Well, it's just me and Nanako here, so it'll be nice having someone like you
+      around.
+    - So long as you're here, you're part of the family, so make yourself at home.
+    - .......Sorry, but I gotta go take care of of some business. Go ahead and eat
+      without me.
+    - I don't know how late I'll be. Nanako, you help him out, okay?
 --- !u!4 &731884100
 Transform:
   m_ObjectHideFlags: 0
@@ -429,6 +580,9 @@ MonoBehaviour:
   - {fileID: 731884098}
   - {fileID: 1144484800}
   - {fileID: 2064813754}
+  - {fileID: 561886519}
+  - {fileID: 304044274}
+  - {fileID: 236450709}
 --- !u!4 &769243760
 Transform:
   m_ObjectHideFlags: 0
@@ -644,8 +798,7 @@ MonoBehaviour:
   dialogue:
     name: Nanako Dojima
     sentences:
-    - ...................
-    - ...ello....
+    - ...Okay.
 --- !u!4 &1144484802
 Transform:
   m_ObjectHideFlags: 0
@@ -951,9 +1104,7 @@ MonoBehaviour:
   dialogue:
     name: Ryotaro Dojima
     sentences:
-    - Why are you so shy Nanako?
-    - Anyway, I'll be taking care of you the following year.
-    - My car is over there. I'll drive you to our home. Let's go.
+    - Nanako, it's raining out. What did you do with the laundry!?
 --- !u!4 &2064813756
 Transform:
   m_ObjectHideFlags: 0
