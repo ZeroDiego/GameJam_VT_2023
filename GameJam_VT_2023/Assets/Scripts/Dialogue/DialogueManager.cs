@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
 
     public Text nameText;
     public Text dialogueText;
+    public Image image;
 
     public Animator animator;
 
@@ -48,6 +49,9 @@ public class DialogueManager : MonoBehaviour
         //Debug.Log("Starting conversation with " + dialogue.name);
         //Debug.Log(dialogue.name);
         nameText.text = dialogue.name;
+        image = dialogue.characterImage;
+        Debug.Log(image);
+        image.color = new Color32(255, 255, 255, 255);
 
 
         sentences.Clear();
@@ -91,6 +95,8 @@ public class DialogueManager : MonoBehaviour
 
         try
         {
+            Debug.Log(image);
+            image.color = new Color32(80, 80, 80, 255);
             dialogueIndex++;
             characterList[dialogueIndex].GetComponent<DialogueTrigger>().TriggerDialogue();
         } catch(Exception e)
