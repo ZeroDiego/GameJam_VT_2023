@@ -5,7 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Dialogue.unity
+    guid: 8901d7f7bc0c6774aba68ea9e7b88593
+  - enabled: 1
+    path: Assets/Scenes/HomeDialogue.unity
+    guid: a50427aea9239d546b18fa3c4df7dee8
+  - enabled: 1
+    path: Assets/Scenes/VelvetRoomDialogue.unity
+    guid: 3c0e93c98e736554fa451fdbc6db941b
   m_configObjects: {}

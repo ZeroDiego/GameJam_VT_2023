@@ -20,10 +20,12 @@ public class DialogueManager : MonoBehaviour
 
     public GameObject[] characterList;
     private DialogueTrigger dialogueTrigger;
+    public SceneTransition sceneTransition;
 
     // Start is called before the first frame update
     void Start()
     {
+        //sceneTransition = gameObject.GetComponent<SceneTransition>();
         dialogueIndex = 0;
         sentences = new Queue<string>();
     }
@@ -50,7 +52,6 @@ public class DialogueManager : MonoBehaviour
         //Debug.Log(dialogue.name);
         nameText.text = dialogue.name;
         image = dialogue.characterImage;
-        Debug.Log(image);
         image.color = new Color32(255, 255, 255, 255);
 
 
@@ -95,7 +96,6 @@ public class DialogueManager : MonoBehaviour
 
         try
         {
-            Debug.Log(image);
             image.color = new Color32(80, 80, 80, 255);
             dialogueIndex++;
             characterList[dialogueIndex].GetComponent<DialogueTrigger>().TriggerDialogue();
@@ -103,6 +103,7 @@ public class DialogueManager : MonoBehaviour
         {
             Console.WriteLine(e.Message);
             animator.SetBool("IsOpen", false);
+            sceneTransition.ChangeScene();
         }
 
         //Debug.Log("End conversation");
