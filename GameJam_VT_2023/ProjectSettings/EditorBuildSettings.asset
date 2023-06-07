@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HomeDialogueTV2.unity
     guid: f934e8ce4e616d44baf67a934a95afef
+  - enabled: 1
+    path: Assets/Scenes/HomeDialogueTV3.unity
+    guid: a58a43a9b29d8934b91ac31f038a07f2
   m_configObjects: {}
