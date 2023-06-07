@@ -7,7 +7,7 @@ public class SpellButtons : MonoBehaviour
 {
     private static List<Button> buttons = new List<Button>();
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         foreach (Button b in GetComponentsInChildren<Button>())
         {
@@ -35,5 +35,6 @@ public class SpellButtons : MonoBehaviour
             }
             buttons[i].onClick.AddListener(delegate { spell.CastSpell(caster, caster.enemiesToTarget[0]); });
         }
+        Debug.Log("dasda");
     }
 }
