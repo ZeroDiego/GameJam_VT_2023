@@ -1,52 +1,73 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    public bool isAlive;
+    public bool myTurn = false;
+	public bool isKnockedDown = false;
+	public bool isAlive = true;
 
-    [SerializeField] private float weakMultiplier;
-    [SerializeField] private float strongMultiplier;
-
-    private const int ONE = 1;
-    private const int ONEHUNDRED = 100;
-    private const int ZIOBASEPOWER = 80;
-
-    [SerializeField] private string entityName; 
-
-    private const string PHYSICAL = "Physical";
-    private const string FIRE = "Fire";
-    private const string ICE = "Ice";
-    private const string ELEC = "Elec";
-    private const string WIND = "Wind";
-
-    [SerializeField] private int healthPoints;
-    [SerializeField] private int skillPoints;
-    [SerializeField] private int strength;
-    [SerializeField] private int magic;
-    [SerializeField] private int endurance;
-    [SerializeField] private int agility;
-    [SerializeField] private int luck;
-
+	protected static float WEAKMULTIPLIER = 1.4f;
+	protected static float STRONGMULTIPLIER = 0.6f;
+    [SerializeField] private string entityName;
     [SerializeField] private Affinity[] affinities;
+	public Spell[] spells;
 
-    public void TakeDamage(string damageType, int damage)
+    public List<Entity> enemiesToTarget = new List<Entity>();
+
+	public int healthPoints;
+	[NonSerialized] public int maxhealthPoints;
+	public int skillPoints;
+	[NonSerialized] public int maxskillPoints;
+
+    public int strength;
+    public int magic;
+    public int endurance;
+    public int agility;
+    public int luck;
+
+	private void Start()
+	{
+        maxhealthPoints = healthPoints;
+		maxskillPoints = skillPoints;
+        string tag = gameObject.tag == "Player" ? "Enemy" : "Player";
+        foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag(tag))
+        {
+            enemiesToTarget.Add(gameObject.GetComponent<Entity>());
+        }
+	}
+
+	public void TakeDamage(AffinityType affinityType, int damage, bool crit)
     {
         float multiplier = 1.0f;
 
-        foreach (Affinity affinity in affinities)
+        if (crit)
         {
-            if (affinity.affinityName.Equals(damageType)) 
+            multiplier = WEAKMULTIPLIER;
+			KnockDown();
+		}
+        else
+        {
+            foreach (Affinity affinity in affinities)
             {
-                if (affinity.isWeak)
-                    multiplier = weakMultiplier;
-                else if (affinity.isStrong)
-                    multiplier = strongMultiplier;
-                break;
+                if (affinity.type.Equals(affinityType)) 
+                {
+                    if (affinity.isWeak)
+                    { 
+                        multiplier = WEAKMULTIPLIER;
+                        KnockDown();
+                        crit = true;
+					}
+                    else if (affinity.isStrong)
+                        multiplier = STRONGMULTIPLIER;
+                    break;
+                }
             }
         }
 
         healthPoints -= Mathf.FloorToInt((damage - endurance) * multiplier);
-        Debug.Log(Mathf.FloorToInt((damage - endurance) * multiplier) + " damage taken!");
+        Debug.Log(Mathf.FloorToInt((damage - endurance) * multiplier) + " damage taken! Crit: " + crit);
 
         if (healthPoints <= 0)
         {
@@ -57,13 +78,18 @@ public class Entity : MonoBehaviour
         Debug.Log(name + " has " + healthPoints + " healthpoints!");
     }
 
-    public void Zio(Entity target)
+    public void EntityBehaviour()
     {
-        if (target.isAlive)
+        Spell spell = spells[UnityEngine.Random.Range(0, spells.Length)];
+        spell.CastSpell(this, enemiesToTarget[UnityEngine.Random.Range(0, enemiesToTarget.Count)]);
+    }
+
+    private void KnockDown()
+    {
+        if (!isKnockedDown)
         {
-            int damage = Mathf.FloorToInt(ZIOBASEPOWER * (((float) magic / ONEHUNDRED) + ONE));
-            Debug.Log("Zio deals " + damage + " damage before endurance");
-            target.TakeDamage(ELEC, damage);
+            isKnockedDown = true;
+            // Give opponent extra turn
         }
     }
 
