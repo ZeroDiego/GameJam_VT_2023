@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VelvetRoomDialogue.unity
     guid: 3c0e93c98e736554fa451fdbc6db941b
+  - enabled: 1
+    path: Assets/Scenes/SchoolDialogue.unity
+    guid: 68061104691661b439a28eccfcf9117c
   m_configObjects: {}

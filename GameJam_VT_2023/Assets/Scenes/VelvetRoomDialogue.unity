@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 408679609}
   - component: {fileID: 408679608}
   m_Layer: 5
-  m_Name: NanakoImage
+  m_Name: NarratorImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,7 +203,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 174, y: -116}
+  m_AnchoredPosition: {x: 961, y: 162}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &408679608
@@ -226,7 +226,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b7f29b93b5d33064d81e626d662e8ae7, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -492,7 +492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: 
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 408679608}
     sentences:
     - You go to your bedroom.
     - You lay down in your comfortable bed and fall asleep instantly.
@@ -551,7 +551,7 @@ MonoBehaviour:
   - {fileID: 731884098}
   - {fileID: 1144484800}
   - {fileID: 2064813754}
-  sceneTransition: {fileID: 0}
+  sceneTransition: {fileID: 190709609}
 --- !u!4 &769243760
 Transform:
   m_ObjectHideFlags: 0
@@ -746,7 +746,7 @@ GameObject:
   - component: {fileID: 1144484802}
   - component: {fileID: 1144484801}
   m_Layer: 0
-  m_Name: Nanako Dojima
+  m_Name: Bizarre-looking man
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -766,7 +766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: Bizarre-looking man
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 1510307301}
     sentences:
     - ...Welcome to the Velvet room.
     - Ah... It seems we have a guest with an intriguing destiny... *chuckle*
@@ -877,7 +877,7 @@ GameObject:
   - component: {fileID: 1510307302}
   - component: {fileID: 1510307301}
   m_Layer: 5
-  m_Name: RyotaroDojimaImage
+  m_Name: IgorImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -900,7 +900,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 109, y: -82.5}
+  m_AnchoredPosition: {x: -10, y: 108}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1510307301
@@ -923,7 +923,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5c458eeeb53067448a48700848ac6532, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ed9a4463f5083db4c94b09b1d20e4f68, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -976,7 +976,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -109, y: -82.5}
+  m_AnchoredPosition: {x: -6, y: -83}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1543503260
@@ -1327,7 +1327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: Igor
-    characterImage: {fileID: 0}
+    characterImage: {fileID: 1510307301}
     sentences:
     - My name is Igor... I am delighted to make your acquaintance.
     - This place exist between dream and reality, mind and matter...
