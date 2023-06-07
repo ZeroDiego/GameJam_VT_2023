@@ -33,12 +33,12 @@ public abstract class Spell : ScriptableObject
 
 				if (affinity == AffinityType.Physical)
 				{
-					calcDamage = Mathf.FloorToInt(damage * (((float)caster.strength / ONEHUNDRED) + 1));
+					calcDamage = Mathf.FloorToInt(damage * (((float)caster.strength / ONEHUNDRED) + 1) * Random.Range(0.95f, 1.05f));
 					if (Roll(caster.luck)) // Crit chance
 						crit = true;
 				}
 				else
-					calcDamage = Mathf.FloorToInt(damage * (((float)caster.magic / ONEHUNDRED) + 1));
+					calcDamage = Mathf.FloorToInt(damage * (((float)caster.magic / ONEHUNDRED) + 1) * Random.Range(0.95f, 1.05f));
 
 				Debug.Log(spellName + " deals " + damage + " damage before endurance");
 				target.TakeDamage(affinity, calcDamage, crit);

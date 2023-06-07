@@ -35,6 +35,5 @@ public class SpellButtons : MonoBehaviour
             }
             buttons[i].onClick.AddListener(delegate { spell.CastSpell(caster, caster.enemiesToTarget[0]); });
         }
-        Debug.Log("dasda");
     }
 }
