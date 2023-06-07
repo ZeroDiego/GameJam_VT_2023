@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SchoolDialogue.unity
     guid: 68061104691661b439a28eccfcf9117c
+  - enabled: 1
+    path: Assets/Scenes/HomeDialogueTV.unity
+    guid: 1548c9e223b29f04996758c4ba8f0efb
+  - enabled: 1
+    path: Assets/Scenes/HomeDialogueTV2.unity
+    guid: f934e8ce4e616d44baf67a934a95afef
   m_configObjects: {}
