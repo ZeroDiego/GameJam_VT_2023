@@ -4,7 +4,17 @@ using UnityEngine;
 
 public class Affinity : MonoBehaviour
 {
-    public string affinityName;
-    public bool isWeak;
+	public AffinityType type;
+	public bool isWeak;
     public bool isStrong;
+}
+
+public enum AffinityType
+{
+	None,
+	Physical,
+	Fire,
+	Ice,
+	Electricity,
+	Wind
 }

@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8d8b786214e77d42a101d700ce4b032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  affinityName: Elec
+  type: 4
   isWeak: 1
   isStrong: 0
