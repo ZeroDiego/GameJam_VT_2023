@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 292211007352585408}
   - component: {fileID: 292211007352585411}
   - component: {fileID: 292211007352585410}
+  - component: {fileID: -1683855741827645578}
   m_Layer: 0
   m_Name: Door
   m_TagString: Door
@@ -166,3 +167,16 @@ CircleCollider2D:
   m_Offset: {x: 1.0202868, y: -0.1821475}
   serializedVersion: 2
   m_Radius: 3.6776006
+--- !u!114 &-1683855741827645578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292211007352585413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08b32149a34489644902a0db8142d60f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectsToActivate: []
