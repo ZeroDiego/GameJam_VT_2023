@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Sword_OnHit : MonoBehaviour
 {
@@ -17,12 +18,14 @@ public class Sword_OnHit : MonoBehaviour
             Debug.Log("Start battle with advantage!");
             Destroy(collision.transform.parent.gameObject);
             spawner.RemoveShadow(collision.transform.parent.gameObject);
+            SceneManager.LoadScene("Turn-based combat");
         }
         else if (collision.CompareTag("Shadow"))
         {
             Debug.Log("Start battle!");
             Destroy(collision.gameObject.transform.parent.gameObject);
             spawner.RemoveShadow(collision.transform.parent.gameObject);
+            SceneManager.LoadScene("Turn-based combat");
         }
     }
 }

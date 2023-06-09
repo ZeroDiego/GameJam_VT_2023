@@ -29,4 +29,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HomeDialogueTV3.unity
     guid: a58a43a9b29d8934b91ac31f038a07f2
+  - enabled: 1
+    path: Assets/Scenes/philip.unity
+    guid: 94ea5fc6afbc6a44289c8d81e5075997
+  - enabled: 1
+    path: Assets/Scenes/Turn-based combat.unity
+    guid: b634c4280ae329f44a0dd9009cdc6832
   m_configObjects: {}

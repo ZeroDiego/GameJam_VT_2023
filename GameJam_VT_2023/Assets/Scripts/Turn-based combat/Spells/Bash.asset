@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bash
   m_EditorClassIdentifier: 
   spellName: Bash
-  affinity: 0
-  damage: 60
   accuracy: 95
-  cost: 8
+  affinity: 1
+  damage: 60
+  cost: 6

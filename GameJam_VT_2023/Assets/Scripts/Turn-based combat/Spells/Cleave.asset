@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cleave
   m_EditorClassIdentifier: 
   spellName: Cleave
+  accuracy: 75
   affinity: 1
   damage: 85
-  accuracy: 75
-  cost: 8
+  cost: 5

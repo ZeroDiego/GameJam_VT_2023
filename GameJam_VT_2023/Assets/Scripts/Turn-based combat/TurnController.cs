@@ -2,41 +2,116 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TurnController : MonoBehaviour
 {
-    [SerializeField] private static List<Entity> entities = new List<Entity>();
+    private static Text turnText;
+    private static SpellButtons spellButtons;
+    private List<Entity> entities = new List<Entity>();
+    private static List<Entity> enemies = new List<Entity>();
     private static int indexTurn = 0;
-    
+
+    private static float turnTransistionTimer;
+    private static float turnTransistionDuration = 2f;
+    private static bool turnTransistionBoolean;
+
     void Start()
     {
+        turnTransistionTimer = turnTransistionDuration;
+        turnText = GameObject.Find("TurnText").GetComponent<Text>();
+        spellButtons = GameObject.Find("Canvas").GetComponent<SpellButtons>();
+
         foreach (Entity entity in FindObjectsOfType<Entity>())
         {
             entities.Add(entity);
-        }
-        entities.OrderByDescending(v => v.agility).ToList();
-		entities[0].myTurn = true;
-		SpellButtons.ChangeCurrentPerson(entities[0]);
-		Debug.Log(entities[indexTurn].gameObject.name + "s turn");
-	}
 
-    public static void NextTurn()
-    {
-        entities[indexTurn].myTurn = false;
-        indexTurn++;
-        if (indexTurn + 1 > entities.Count)
-        {
-            indexTurn = 0;
+            if (entity.gameObject.CompareTag("Enemy"))
+                enemies.Add(entity);
         }
-        entities[indexTurn].myTurn = true;
-		Debug.Log("Next turn: " + entities[indexTurn].gameObject.name);
-        if (entities[indexTurn].gameObject.tag == "Player")
+
+        entities.OrderByDescending(v => v.agility).ToList();
+        turnText.text = "Actor\n" + entities[0].entityName;
+        spellButtons.ChangeCurrentPerson(entities[0]);
+    }
+
+    private void Update()
+    {
+        if (turnTransistionTimer <= 0.0f)
         {
-            SpellButtons.ChangeCurrentPerson(entities[indexTurn]);
+            turnTransistionBoolean = false;
+            turnTransistionTimer = turnTransistionDuration;
+            NextTurn();
+        }
+
+        if (turnTransistionBoolean)
+        {
+            turnTransistionTimer -= Time.deltaTime;
+        }
+    }
+
+    public static void SetTurn()
+    {
+        spellButtons.TurnOffButtons();
+        turnTransistionBoolean = true;
+    }
+
+    public void NextTurn()
+    {
+        indexTurn++;
+
+        if (indexTurn + 1 > entities.Count)
+            indexTurn = 0;
+
+        if (AssertNoEnemiesLeft() || AssertYuIsDead())
+        {
+            EndCombat();
+            return;
+        }
+
+        if (entities[indexTurn].isAlive)
+        {
+            turnText.text = "Actor\n" + entities[indexTurn].gameObject.name;
+
+            if (entities[indexTurn].gameObject.CompareTag("Player"))
+                spellButtons.ChangeCurrentPerson(entities[indexTurn]);
+            else
+                entities[indexTurn].EntityBehaviour();
         }
         else
+            NextTurn();
+    }
+
+    private bool AssertYuIsDead()
+    {
+        if (entities[indexTurn].entityName.Equals("Yu Narukami") && !entities[indexTurn].isAlive)
         {
-            entities[indexTurn].EntityBehaviour();
-		}
+            turnText.text = "Yu died!";
+            return true;
+        }
+
+        return false;
+    }
+
+    private bool AssertNoEnemiesLeft()
+    {
+        int enemyDeadCount = 0;
+
+        foreach (Entity enemy in enemies)
+        {
+            if (!enemy.isAlive)
+                enemyDeadCount++;
+        }
+
+        if (enemyDeadCount == enemies.Count)
+            return true;
+        else
+            return false;
+    }
+
+    private static void EndCombat()
+    {
+        SceneManager.LoadScene("philip");
     }
 }

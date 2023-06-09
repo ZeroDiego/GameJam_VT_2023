@@ -46,22 +46,23 @@ public abstract class Spell : ScriptableObject
 			else
 				Debug.Log("Miss");
 		}
-		TurnController.NextTurn();
+		TurnController.SetTurn();
 	}
 
 	private bool TryCastSpell(Entity caster)
-	{ 
-
-		if (affinity == AffinityType.Physical && ((float) caster.maxhealthPoints / (cost / 100) < caster.healthPoints))
+	{
+		if (affinity == AffinityType.Physical && caster.maxhealthPoints > Mathf.FloorToInt(caster.maxhealthPoints - caster.maxhealthPoints / ((cost / 100f) + 1f)))
 		{
-			caster.healthPoints -= (int)((float) caster.maxhealthPoints / (cost / 100));
-			return true;
+			caster.healthPoints -= Mathf.FloorToInt(caster.maxhealthPoints - caster.maxhealthPoints / ((cost / 100f) + 1f));
+			caster.healthText.text = caster.healthPoints + " / " + caster.maxhealthPoints;
+            return true;
 		}
 		else if (caster.skillPoints >= cost)
 		{
 			caster.skillPoints -= cost;
 			return true;
 		}
+
 		return false;
 	}
 
@@ -72,6 +73,7 @@ public abstract class Spell : ScriptableObject
 			Cast(caster, target);
 			return true;
 		}
+
 		return false;
 	}
 

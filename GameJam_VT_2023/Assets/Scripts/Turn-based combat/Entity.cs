@@ -1,16 +1,18 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Entity : MonoBehaviour
 {
-    public bool myTurn = false;
 	public bool isKnockedDown = false;
 	public bool isAlive = true;
 
+    public Text healthText;
+
 	protected static float WEAKMULTIPLIER = 1.4f;
 	protected static float STRONGMULTIPLIER = 0.6f;
-    [SerializeField] private string entityName;
+    [SerializeField] public string entityName;
     [SerializeField] private Affinity[] affinities;
 	public Spell[] spells;
 
@@ -31,6 +33,8 @@ public class Entity : MonoBehaviour
 	{
         maxhealthPoints = healthPoints;
 		maxskillPoints = skillPoints;
+        healthText.text = healthPoints + " / " + maxhealthPoints;
+
         string tag = gameObject.tag == "Player" ? "Enemy" : "Player";
         foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag(tag))
         {
@@ -75,7 +79,7 @@ public class Entity : MonoBehaviour
             OnDeath();
         }
 
-        Debug.Log(name + " has " + healthPoints + " healthpoints!");
+        healthText.text = healthPoints + " / " + maxhealthPoints;
     }
 
     public void EntityBehaviour()
