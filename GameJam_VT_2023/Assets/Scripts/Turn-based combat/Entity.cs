@@ -1,24 +1,16 @@
+using System;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+    public string entityName;
+
     public bool isAlive;
 
     [SerializeField] private float weakMultiplier;
     [SerializeField] private float strongMultiplier;
 
-    private const int ONE = 1;
-    private const int ONEHUNDRED = 100;
-    private const int ZIOBASEPOWER = 80;
-
-    [SerializeField] private string entityName; 
-
-    private const string PHYSICAL = "Physical";
-    private const string FIRE = "Fire";
-    private const string ICE = "Ice";
-    private const string ELEC = "Elec";
-    private const string WIND = "Wind";
-
+    [SerializeField] private Affinity[] affinities;
     [SerializeField] private int healthPoints;
     [SerializeField] private int skillPoints;
     [SerializeField] private int strength;
@@ -27,7 +19,27 @@ public class Entity : MonoBehaviour
     [SerializeField] private int agility;
     [SerializeField] private int luck;
 
-    [SerializeField] private Affinity[] affinities;
+    public Entity CompareEntities(Entity otherEntity)
+    {
+        if (agility > otherEntity.agility)
+        {
+            return this;
+        }
+        else
+        {
+            return otherEntity;
+        }
+    }
+
+    public int GetStrength()
+    {
+        return strength;
+    }
+
+    public int GetMagic()
+    {
+        return magic;
+    }
 
     public void TakeDamage(string damageType, int damage)
     {
@@ -55,16 +67,6 @@ public class Entity : MonoBehaviour
         }
 
         Debug.Log(name + " has " + healthPoints + " healthpoints!");
-    }
-
-    public void Zio(Entity target)
-    {
-        if (target.isAlive)
-        {
-            int damage = Mathf.FloorToInt(ZIOBASEPOWER * (((float) magic / ONEHUNDRED) + ONE));
-            Debug.Log("Zio deals " + damage + " damage before endurance");
-            target.TakeDamage(ELEC, damage);
-        }
     }
 
     private void OnDeath()
