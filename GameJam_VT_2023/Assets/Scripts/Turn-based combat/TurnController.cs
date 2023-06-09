@@ -6,6 +6,7 @@ using UnityEngine;
 public class TurnController : MonoBehaviour
 {
     [SerializeField] private static List<Entity> entities = new List<Entity>();
+    [SerializeField] private static List<Entity> enemies = new List<Entity>();
     private static int indexTurn = 0;
     
     void Start()
@@ -13,11 +14,13 @@ public class TurnController : MonoBehaviour
         foreach (Entity entity in FindObjectsOfType<Entity>())
         {
             entities.Add(entity);
+
+            if (entity.gameObject.CompareTag("Enemy"))
+                enemies.Add(entity);
         }
         entities.OrderByDescending(v => v.agility).ToList();
-		entities[0].myTurn = true;
-		SpellButtons.ChangeCurrentPerson(entities[0]);
-		Debug.Log(entities[indexTurn].gameObject.name + "s turn");
+        Debug.Log(entities[0]);
+        SpellButtons.ChangeCurrentPerson(entities[0]);
 	}
 
     public static void NextTurn()
@@ -28,15 +31,46 @@ public class TurnController : MonoBehaviour
         {
             indexTurn = 0;
         }
-        entities[indexTurn].myTurn = true;
-		Debug.Log("Next turn: " + entities[indexTurn].gameObject.name);
-        if (entities[indexTurn].gameObject.tag == "Player")
+
+        if (AssertNoEnemiesLeft())
         {
-            SpellButtons.ChangeCurrentPerson(entities[indexTurn]);
+            EndCombat();
+            return;
+        }
+
+        if (entities[indexTurn].isAlive)
+        {
+            Debug.Log("Next turn: " + entities[indexTurn].gameObject.name);
+
+            if (entities[indexTurn].gameObject.CompareTag("Player"))
+                SpellButtons.ChangeCurrentPerson(entities[indexTurn]);
+            else
+                entities[indexTurn].EntityBehaviour();
         }
         else
         {
-            entities[indexTurn].EntityBehaviour();
-		}
+            NextTurn();
+        }
+    }
+
+    private static bool AssertNoEnemiesLeft()
+    {
+        int enemyDeadCount = 0;
+
+        foreach (Entity enemy in enemies)
+        {
+            if (!enemy.isAlive)
+                enemyDeadCount++;
+        }
+
+        if (enemyDeadCount == enemies.Count)
+            return true;
+        else
+            return false;
+    }
+
+    private static void EndCombat()
+    {
+
     }
 }

@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class SpellButtons : MonoBehaviour
 {
     private static List<Button> buttons = new List<Button>();
+
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         foreach (Button b in GetComponentsInChildren<Button>())
         {

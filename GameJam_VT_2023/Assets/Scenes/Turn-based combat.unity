@@ -220,16 +220,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96dde3a96922f6149aa18c5e25cd994c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myTurn: 0
   isKnockedDown: 0
   isAlive: 1
   entityName: Yosuke Hanamura
   affinities:
   - {fileID: 7452087087592340053, guid: 2529ddb6a42a7b4449fd16df99d3feb2, type: 3}
   - {fileID: -7151632924140957430, guid: 0c974db91bc022848b77703e2f9ee74d, type: 3}
-  spells: []
+  spells:
+  - {fileID: 11400000, guid: b5a6824c18283274798e9a4c3f367d7b, type: 2}
   enemiesToTarget: []
   healthPoints: 143
-  manaPoints: 0
   skillPoints: 99
   strength: 5
   magic: 3
@@ -401,16 +402,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96dde3a96922f6149aa18c5e25cd994c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myTurn: 0
   isKnockedDown: 0
   isAlive: 1
   entityName: Dice
   affinities:
   - {fileID: 5193024435856275269, guid: 189c5453b1e95d948aa47b34dd7541f2, type: 3}
   - {fileID: 7452087087592340053, guid: 2529ddb6a42a7b4449fd16df99d3feb2, type: 3}
-  spells: []
+  spells:
+  - {fileID: 11400000, guid: 2ccbedaa5e452584eb3a60fd8df4358f, type: 2}
   enemiesToTarget: []
   healthPoints: 180
-  manaPoints: 0
   skillPoints: 34
   strength: 8
   magic: 5
@@ -648,6 +650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96dde3a96922f6149aa18c5e25cd994c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myTurn: 0
   isKnockedDown: 0
   isAlive: 1
   entityName: Yu Narukami
@@ -659,7 +662,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4d13e5d05948be54fb7f8e9082c17c0c, type: 2}
   enemiesToTarget: []
   healthPoints: 146
-  manaPoints: 50
   skillPoints: 90
   strength: 3
   magic: 2
@@ -763,16 +765,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96dde3a96922f6149aa18c5e25cd994c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myTurn: 0
   isKnockedDown: 0
   isAlive: 1
   entityName: Chie Satonaka
   affinities:
   - {fileID: -8912956706769035300, guid: 1030843101191b7409dbf9203e42a0a9, type: 3}
   - {fileID: -7104895955494463235, guid: 408d64c4fddcb7a4e872220ef1045ff8, type: 3}
-  spells: []
+  spells:
+  - {fileID: 11400000, guid: 65336bfdb34b0374e9cadc86bb902e97, type: 2}
   enemiesToTarget: []
   healthPoints: 110
-  manaPoints: 0
   skillPoints: 51
   strength: 5
   magic: 5
@@ -1093,11 +1096,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a96de803de8c71418bb3814afff4ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entities:
-  - {fileID: 1249670951}
-  - {fileID: 217757469}
-  - {fileID: 1293910211}
-  - {fileID: 410192091}
 --- !u!1 &1688317993
 GameObject:
   m_ObjectHideFlags: 0
